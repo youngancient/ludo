@@ -12,7 +12,7 @@ contract SimpleLudo {
     error NonPlayerNotAllowed();
     error GameHasNotStarted();
 
-    uint8 constant NO_OF_SEEDS = 4;
+    // uint8 constant NO_OF_SEEDS = 4;
 
     enum playerColor {
         RED,
@@ -26,7 +26,6 @@ contract SimpleLudo {
         playerColor color;
         uint playerDicePosition;
         bool isWinner;
-        uint8 noOfSeeds;
     }
 
     uint8 counter;
@@ -85,7 +84,7 @@ contract SimpleLudo {
         if (counter + 1 > 4) {
             revert MaxRegistrationsReached();
         }
-        
+
         if (msg.sender == address(0)) {
             revert ZeroAddressNotAllowed();
         }
@@ -98,8 +97,7 @@ contract SimpleLudo {
             counter,
             _color,
             0,
-            false,
-            NO_OF_SEEDS
+            false
         );
 
         // start game if no of player == 2
