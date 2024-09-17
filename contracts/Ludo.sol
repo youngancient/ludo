@@ -65,7 +65,7 @@ contract SimpleLudo {
         // if the player reaches 255, end the game
         Player storage player = registeredPlayer[msg.sender];
 
-        if (player.playerDicePosition == 255) {
+        if (player.playerDicePosition >= 255) {
             startGame = false;
             player.isWinner = true;
             winner = msg.sender;
